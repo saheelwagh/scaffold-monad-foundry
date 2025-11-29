@@ -14,7 +14,7 @@ export const DEFAULT_ALCHEMY_API_KEY = "oKxs-03sij-U_N0iOlrSsZFr29-IqbuF";
 
 // Define Monad Testnet as a custom chain
 export const monadTestnet = defineChain({
-  id: 41454,
+  id: 10143,
   name: "Monad Testnet",
   nativeCurrency: {
     decimals: 18,
@@ -23,7 +23,7 @@ export const monadTestnet = defineChain({
   },
   rpcUrls: {
     default: {
-      http: ["https://testnet.monad.xyz"],
+      http: ["https://testnet-rpc.monad.xyz"],
     },
   },
   blockExplorers: {
@@ -37,7 +37,7 @@ export const monadTestnet = defineChain({
 
 const scaffoldConfig = {
   // The networks on which your DApp is live
-  targetNetworks: [chains.foundry, monadTestnet],
+  targetNetworks: [monadTestnet, chains.foundry], // Monad first for easy switching
 
   // The interval at which your front-end polls the RPC servers for new data
   // it has no effect if you only target the local network (default is 4000)

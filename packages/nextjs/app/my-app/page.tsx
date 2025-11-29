@@ -5,8 +5,12 @@ import { StoryDisplay } from "./_components/StoryDisplay";
 import { StoryInput } from "./_components/StoryInput";
 import { StoryRevenue } from "./_components/StoryRevenue";
 import type { NextPage } from "next";
+import { useAccount } from "wagmi";
+import { RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 
 const MyApp: NextPage = () => {
+  const { address: connectedAddress } = useAccount();
+
   // Demo/Mock state - will be replaced with contract hooks in Hour 3
   const [demoLines, setDemoLines] = useState<string[]>([
     "Once upon a time, in a blockchain far, far away...",
@@ -52,6 +56,33 @@ const MyApp: NextPage = () => {
               Build a story together, one sentence at a time. Complete 10 lines to share the rewards.
             </p>
           </div>
+
+          {/* Connect Wallet Section */}
+          {!connectedAddress && (
+            <div className="mb-8 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl p-8 border-2 border-primary/30">
+              <div className="flex flex-col items-center text-center gap-4">
+                <div className="text-5xl">🔗</div>
+                <h3 className="text-2xl font-bold">Connect Your Wallet to Get Started</h3>
+                <p className="text-base-content/70 max-w-md">
+                  Connect your wallet to contribute to the story, make donations, and earn rewards when the story
+                  completes.
+                </p>
+                <div className="mt-2">
+                  <RainbowKitCustomConnectButton />
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Connected Status */}
+          {connectedAddress && (
+            <div className="mb-6 flex justify-center">
+              <div className="badge badge-success badge-lg gap-2">
+                <span className="text-lg">✓</span>
+                <span>Wallet Connected</span>
+              </div>
+            </div>
+          )}
 
           {/* Main Grid Layout */}
           <div className="grid lg:grid-cols-3 gap-8">
