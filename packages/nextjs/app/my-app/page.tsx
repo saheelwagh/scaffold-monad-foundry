@@ -44,34 +44,13 @@ const MyApp: NextPage = () => {
         <div className="px-5 w-full max-w-6xl">
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
               Mon ki baat 📖
             </h1>
             <p className="text-2xl text-base-content/70 mb-2">Collaborative Storytelling on Monad</p>
             <p className="text-lg text-base-content/50">
               Build a story together, one sentence at a time. Complete 10 lines to share the rewards.
             </p>
-          </div>
-
-          {/* Info Banner */}
-          <div className="alert alert-info mb-8 shadow-lg">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              className="stroke-current shrink-0 w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              ></path>
-            </svg>
-            <div>
-              <div className="font-bold">Demo Mode Active</div>
-              <div className="text-sm">Frontend fully built! Next: Smart contract integration (Hour 2-3)</div>
-            </div>
           </div>
 
           {/* Main Grid Layout */}
