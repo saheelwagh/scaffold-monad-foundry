@@ -102,13 +102,14 @@ contract ExquisiteMonad {
         }
 
         uint256 share = balance / authors.length;
-        console.log("Distributing", share, "to each of", authors.length, "authors");
+        console.log("Distributing to", authors.length, "authors");
+        console.log("Share per author:", share);
 
         for (uint256 i = 0; i < authors.length; i++) {
             // Note: Using transfer() for hackathon simplicity
             // Production should use call{value: share}("") with proper error handling
             authors[i].transfer(share);
-            console.log("Paid", share, "to author", i, ":", authors[i]);
+            console.log("Paid author", i);
         }
 
         emit StoryCompleted(balance);
